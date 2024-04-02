@@ -20,5 +20,9 @@ namespace ConexionBd.Controllers
     return View(await _context.users.ToListAsync());
 }
 
+    public async Task<ActionResult> Details(int? id)
+    {
+        return View(await _context.users.FirstOrDefaultAsync(m => m.id == id));
+    }
     }
 }

@@ -6,23 +6,34 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
-        <tr>
-            <td>Id</td>
-            <td>Nombres</td>
-            <td>Apellidos</td>
-            <td>Correo</td>
-        </tr>
-        @foreach (var user in Model)
-        {
-            <tr>
-                <td>@user.Id</td>
-                <td>@user.Nombres</td>
-                <td>@user.Apellidos</td>
-                <td>@user.Correo</td>
-            </tr>
-
-        }
-    </table>
+    <div class="container mt-5">
+        <h1>Listado de Usuarios</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.id</td>
+                        <td>@user.Names</td>
+                        <td>@user.LastNames</td>
+                        <td>@user.Email</td>
+                        <td>
+                            <a href="@Url.Action("Details", "User", new { id = @user.id })" class="btn btn-primary">Detalles</a>
+                            <!-- Agregar botones adicionales para Editar y Eliminar si es necesario -->
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
